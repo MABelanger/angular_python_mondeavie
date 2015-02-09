@@ -1,0 +1,20 @@
+{% extends "admin_activities/base.html" %}
+{% load crispy_forms_tags %}
+
+{% load staticfiles %}
+
+
+{% block content %}
+    <div class="container clear-top" id="main">
+        <div class="row">
+		    <div class="col-sm-4">
+		    </div>
+		    <div class="col-sm-4">
+		        <h1>Connection</h1>
+				{% crispy form %}
+			</div>
+		    <div class="col-sm-4">
+		    </div>
+		</div>
+	</div>
+{% endblock content %}

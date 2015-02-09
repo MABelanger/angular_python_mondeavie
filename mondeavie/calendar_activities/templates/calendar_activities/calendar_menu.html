@@ -1,0 +1,27 @@
+<table class="cal-menu" ng-repeat=" courseNameCourse in courseNameCourses">
+	<tr>
+		<td class="cal-menu-cname" colspan="2">
+	    	<a href="" ng-click="teacher_hide = !teacher_hide">
+	    		<div class="text-right">
+		    		<div class="cal-menu-cname-label">
+		    			{[{ courseNameCourse.name }]}
+		    		</div><div class="cal-menu-icon">
+		    			<img ng-src="{[{ courseNameCourse.icon }]}">
+		    		</div>
+		    	</div>
+	    	</a>
+	    </td>
+	</tr>
+	<tr>
+		<td>
+			<div class="animate-show" ng-show="teacher_hide" ng-repeat="course in courseNameCourse.courses">
+				<a ng-href="#/courses/{[{ course.id }]}">
+					<div class="text-right cal-menu-tname">
+						{[{ course.teacher }]}
+					</div>
+				</a>
+			</div>
+		</td>
+		<td class="cal-menu-empty"></td>
+	</tr>
+</table><!-- ./calendar menu -->

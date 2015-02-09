@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs full-width">
+
+	{% if tab_active == "courses" %}
+    	<li class="active half-width text-uppercase text-center my-tab"><a href="">Cours</a></li>
+    {% else %}
+    	<li class="half-width text-uppercase text-center my-tab"><a href="#/courses/">Cours</a></li>
+    {% endif %}
+
+    {% if tab_active == "conferences" %}
+    	<li class="active half-width text-uppercase text-center my-tab"><a href="">Conf&eacute;rences et Ateliers</a></li>
+    {% else %}
+    	<li class="half-width text-uppercase text-center my-tab"><a href="#/conferences/">Conf&eacute;rences et Ateliers</a></li>
+    {% endif %}
+</ul>

@@ -1,0 +1,146 @@
+<div class="row">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <h4>Jours de cours</h4>
+                <div class="btn-group dropup">
+                    <button type="button" class="btn dropdown-toggle dropup"
+                    ng-class="{'btn-success': daySchedule.success==true, 'btn-info': daySchedule.success!=true}"
+                    data-toggle="dropdown">
+                        <span ng-show="daySchedule.id">
+                            {[{ daySchedule.day_name_name }]}
+                        </span>
+                        <span ng-show="!daySchedule.id">
+                            Jours de cours...
+                        </span>
+                        <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat="dayScheduleOpt in daySchedules">
+                            <a href="" ng-click="selectDaySchedule(dayScheduleOpt)">
+                                {[{ dayScheduleOpt.day_name_name }]}
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            type="button"
+                            ng-disabled="!daySchedule.id"
+                            ng-click="modDaySchedule()">
+                            Modifier
+                    </button>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            ng-click="newDaySchedule()">
+                            Nouveau
+                    </button>
+                </div><!-- ./btn-group -->
+            </div><!-- ./col-xs-offset-2 col-xs-10 -->
+        </div><!-- ./form-group -->
+    </div><!-- ./form-horizontal -->
+</div><!-- ./row -->
+
+
+<div ng-show="isModDaySchedule">
+
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="form-group">
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-1">
+                    <br>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="daySchedule.is_full"><strong>Complet</strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <div class="btn-group dropup">
+                        <br>
+                        <div errormsg save-error="{[{ daySchedule.errors.day_name }]}"></div>
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                            <span ng-show="daySchedule.day_name_name">
+                                {[{  daySchedule.day_name_name }]}
+                            </span>
+                            <span ng-show="!daySchedule.day_name_name">
+                                Jours...
+                            </span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-repeat="dayName in dayNames"
+                                ng-init="daySchedule_ = daySchedule">
+                                <a href="" ng-click="selectDayName(dayName, daySchedule)">
+                                    {[{ dayName.name }]}
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- ./btn-group -->
+                </div><!-- ./col-sm-offset-2 col-sm-2 -->
+                
+                <div class="col-sm-3">
+                    D&eacute;but:<br>
+                    <div errormsg save-error="{[{ daySchedule.errors.hour_start }]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="day_schedule_hour_end"
+                            placeholder="00:00h"
+                            ng-model="daySchedule.hour_start">
+                </div><!-- ./col-sm-1 -->
+
+                <div class="col-sm-3">
+                    Fin:<br>
+                    <div errormsg save-error="{[{ daySchedule.errors.hour_end }]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="day_schedule_hour_end"
+                            placeholder="00:00h"
+                            ng-model="daySchedule.hour_end">
+                </div><!-- ./col-sm-2 -->
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="form-group">
+
+                <div class="col-sm-offset-3 col-sm-3">
+                    {% include "admin_activities/datepicker.html" with ng_model='daySchedule.day_start' id_model='daySchedule-day_start' label='Du:' errors='daySchedule.errors.day_start' %}
+                </div>
+
+                <div class="col-sm-3">
+                    {% include "admin_activities/datepicker.html" with ng_model='daySchedule.day_end' id_model='daySchedule-day_end' label='Au:' errors='daySchedule.errors.day_end' %}
+                </div>
+
+                <div class="col-sm-3">
+                	<br>
+                    <div class="btn-group">
+                        <button class="btn btn-info"
+                                ng-disabled="!daySchedule"
+                                ng-click="saveDaySchedule()">
+                                Sauvegarder
+                        </button>
+                    </div><!-- ./btn-group -->
+                    <div class="btn-group">
+                        <button class="btn btn-danger"
+                                ng-really-message="Voulez-vous vraiment supprimer cette journee ({[{ daySchedule.day_name_name }]})?" 
+                                ng-really-click="delCancelDaySchedule(daySchedule)" item="daySchedule"
+                                >
+                                X
+                        </button>
+                    </div><!-- ./btn-group -->
+                </div><!-- ./col-xs-offset-2 col-xs-10 -->
+            </div><!-- ./form-group -->
+        </div><!-- ./form-horizontal -->
+    </div><!-- ./row -->
+</div><!-- ./isModCourse -->
+
+
+
+

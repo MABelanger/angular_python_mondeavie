@@ -1,0 +1,257 @@
+<div class="row">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <h4>Conferences</h4>
+                <div class="btn-group">
+                    <button type="button" class="btn dropdown-toggle"
+                    ng-class="{'btn-success': conference.success==true, 'btn-info': conference.success!=true}"
+                    data-toggle="dropdown">
+                        <span ng-show="conference.id">
+                            {[{ conference.title }]}
+                        </span>
+                        <span ng-show="!conference.id">
+                            Conferences...
+                        </span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat="conferenceOpt in conferences">
+                            <a href="" ng-click="selectConference(conferenceOpt)">
+                                {[{ conferenceOpt.title }]}
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            type="button"
+                            ng-disabled="!conference.id"
+                            ng-click="modConference()">
+                            Modifier
+                    </button>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            ng-click="newConference()">
+                            Nouveau
+                    </button>
+                </div><!-- ./btn-group -->
+            </div><!-- ./col-xs-offset-2 col-xs-10 -->
+        </div><!-- ./form-group -->
+    </div><!-- ./form-horizontal -->
+</div><!-- ./row -->
+
+<div ng-show="isModConference">
+    <div class="row">
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <label for="title" class="control-label col-xs-2">
+                    Orateurs:
+                </label>
+                <div class="col-xs-10">
+                    <table>
+                        <tr ng-repeat=" speaker in conference.speakers">
+                            <td>
+                            {[{ speaker.first_name + ' ' +  speaker.last_name}]}
+                            </td>
+                            <td style="padding-left:10px;padding-bottom:5px;">
+                                <button class="btn btn-danger"
+                                        ng-click="delSpeakerFromConf(speaker)">
+                                        X
+                                </button>
+                            </td><!-- ./btn-group -->
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td style="padding-left:10px;padding-bottom:5px;color:red;" ng-show="conference.speakers.length == 0">
+                                Il n'y a pas d'orateurs !
+                            </td>
+                        </tr>
+                    </table>
+
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="title" class="control-label col-xs-2">
+                    &nbsp;
+                </label>
+                <div class="col-xs-10">
+                    <table ng-show="!hideAdd">
+                        <tr>
+                            <td>
+                                {[{ speaker.first_name + ' ' +  speaker.last_name}]}
+                            </td>
+                            <td style="padding-left:10px;padding-bottom:5px;">
+                                <button class="btn btn-info"
+                                    ng-hide="!speaker.id"
+                                        ng-click="addSpeakerFromConf()">
+                                        Ajouter
+                                </button>
+                            </td><!-- ./btn-group -->
+                        </tr>
+                    </table>
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+            <div class="form-group">
+                <label for="is_visible" class="control-label col-xs-2">
+                    Visible:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{conference.errors.is_visible}]}"></div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="conference.is_visible">Visible
+                        </label>
+                    </div>
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="title" class="control-label col-xs-2">
+                    Titre:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{conference.errors.title}]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="title"
+                            placeholder="Titre"
+                            ng-model="conference.title">
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="price" class="control-label col-xs-2">
+                    T&eacute;l&eacute;phone:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{conference.errors.tel}]}"></div>
+                      <input  type="text"
+                                class="form-control"
+                                id="course_price"
+                                placeholder="Téléphone"
+                                ng-model="conference.tel">
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="school_name" class="control-label col-xs-2">
+                    Lien Nom:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{conference.errors.school_name}]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="school_name"
+                            placeholder="Lien Nom"
+                            ng-model="conference.school_name">
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="school_url" class="control-label col-xs-2">
+                    Lien URL:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{conference.errors.school_url}]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="school_url"
+                            placeholder="http://"
+                            ng-model="conference.school_url">
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="conference_conference_image" class="control-label col-xs-2">
+                    Image:
+                </label>
+                <div class="col-xs-10">
+                    <button class="btn btn-info"
+                            onclick="document.getElementById('fileConferenceID').click(); return false;">Rechercher
+                    </button>
+
+                    <!-- the hidden button -->
+                    <div errormsg save-error="{[{conference.errors.image}]}"></div>
+                    <input type="file"
+                            id="fileConferenceID"
+                            ng-file-select-conference="onFileSelect($files)"
+                            style="visibility: hidden;">
+
+                    <!-- show image coming from the FileReader() -->
+                    <img ng-if="conference.image.base64" ng-src="{[{conference.image.base64}]}" width="300">
+                    <!-- show image coming from the server -->
+                    <img ng-if="conference.image && !conference.image.base64" ng-src="{[{conference.image}]}" width="300">
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+
+            <div class="form-group">
+                <label for="abstract" class="control-label col-xs-2">
+                    R&eacute;sum&eacute;:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{conference.errors.abstract}]}"></div>
+                    <textarea ck-editor ng-model="conference.abstract"></textarea>
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+
+            <div class="form-group">
+                <label for="description" class="control-label col-xs-2">
+                    Description:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{conference.errors.description}]}"></div>
+                    <textarea ck-editor ng-model="conference.description"></textarea>
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="price" class="control-label col-xs-2">
+                    C&ocirc;ut:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{conference.errors.price}]}"></div>
+                    <textarea ck-editor ng-model="conference.price"></textarea>
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+
+            <div class="form-group">
+                <label for="price" class="control-label col-xs-2">
+                    Note:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{conference.errors.note}]}"></div>
+                    <textarea ck-editor ng-model="conference.note"></textarea>
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <div class="btn-group">
+                        <button class="btn btn-info"
+                                ng-disabled="!conference"
+                                ng-click="saveConference()">
+                                Sauvegarder
+                        </button>
+                    </div><!-- ./btn-group -->
+
+                    <div class="btn-group">
+                        <button class="btn btn-danger"
+                                ng-really-message="Voulez-vous vraiment supprimer cette conference ({[{ conference.title }]})?" 
+                                ng-really-click="delCancelConference(conference)" item="conference"
+                                >
+                                X
+                        </button>
+                    </div><!-- ./btn-group -->
+                </div><!-- ./col-xs-offset-2 col-xs-10 -->
+            </div><!-- ./form-group -->
+        </div><!-- ./form-horizontal -->
+    </div><!-- ./row -->
+</div><!-- ./isModConference -->

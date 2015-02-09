@@ -1,0 +1,92 @@
+<div class="row">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <h4>Jours d'essaie</h4>
+                <div class="btn-group dropup">
+                    <button type="button" class="btn dropdown-toggle dropup"
+                    ng-class="{'btn-success': testingDay.success==true, 'btn-info': testingDay.success!=true}"
+                    data-toggle="dropdown">
+                        <span ng-show="testingDay.id">
+                            {[{ testingDay.day_name }]}
+                        </span>
+                        <span ng-show="!testingDay.id">
+                            Jours d'essaie...
+                        </span>
+                        <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat="testingDayOpt in testingDays">
+                            <a href="" ng-click="selectTestingDay(testingDayOpt)">
+                                {[{ testingDayOpt.day_name }]}
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            type="button"
+                            ng-disabled="!testingDay.id"
+                            ng-click="modTestingDay()">
+                            Modifier
+                    </button>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            ng-click="newTestingDay()">
+                            Nouveau
+                    </button>
+                </div><!-- ./btn-group -->
+            </div><!-- ./col-sm-offset-2 col-sm-10 -->
+        </div><!-- ./form-group -->
+    </div><!-- ./form-horizontal -->
+</div><!-- ./row -->
+
+
+<div ng-show="isModTestingDay">
+
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="form-group">
+
+                <div class="col-sm-1"></div>
+                <div class="col-sm-1">
+                    <br>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="testingDay.is_full"><strong>Complet</strong>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    {% include "admin_activities/datepicker.html" with ng_model='testingDay.day' id_model='testingDay-day' label='Essaie:' errors='testingDay.errors.day' %}
+                </div>
+
+                <div class="col-sm-3">
+                    <br>
+                    <div class="btn-group">
+                        <button class="btn btn-info"
+                                ng-disabled="!testingDay"
+                                ng-click="saveTestingDay()">
+                                Sauvegarder
+                        </button>
+                    </div><!-- ./btn-group -->
+                    <div class="btn-group">
+                        <button class="btn btn-danger"
+                                ng-really-message="Voulez-vous vraiment supprimer cette journee d'essaie ({[{ testingDay.day_name }]})?" 
+                                ng-really-click="delCancelTestingDay(testingDay)" item="testingDay"
+                                >
+                                X
+                        </button>
+                    </div><!-- ./btn-group -->
+                </div><!-- ./col-xs-offset-2 col-xs-10 -->
+            </div>
+        </div>
+    </div>
+</div><!-- ./isModTestingDay -->
+
+
+
+

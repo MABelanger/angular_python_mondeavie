@@ -1,0 +1,26 @@
+<table>
+    <tr ng-repeat="(key, value) in currentTableDays">
+        <td class="reservation-month-name">
+            <strong>{[{ value.monthName }]}</strong>
+        </td>
+
+        <td ng-repeat="day in value.list"
+            class="text-center reservation-day">
+
+            <label class="reservation-label"
+                   for="{[{day}]}">
+                {[{ day.split(" ")[0] }]}
+            </label>
+
+            <input class="reservation-checkbox"
+                    id="{[{day}]}"
+                    type="checkbox"
+                    name="selectedDays"
+                    value="{[{day}]}"
+                    ng-checked="reservation.client.selections.indexOf(day) > -1" 
+                    ng-click="toggleSelection(day)">
+            <label class="reservation-label"
+                    for="{[{day}]}"></label>
+        </td><!-- ./day in value.list -->
+    </tr><!-- ./in reservation.dayRange.list -->
+</table>

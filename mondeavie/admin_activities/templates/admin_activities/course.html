@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <h4>Cour de {[{ courseName.name + ' avec ' + teacher.first_name + ' ' + teacher.last_name}]}</h4>
+                <div class="btn-group">
+                    <button class="btn"
+                            ng-class="{'btn-success': course.success==true, 'btn-info': course.success!=true}"
+                            type="button"
+                            ng-disabled="!course.id"
+                            ng-click="modCourse()">
+                            Modifier
+                    </button>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            ng-disabled="course.id"
+                            ng-click="newCourse()">
+                            Nouveau
+                    </button>
+                </div><!-- ./btn-group -->
+            </div><!-- ./col-xs-offset-2 col-xs-10 -->
+        </div><!-- ./form-group -->
+
+        <div ng-show="isModCourse">
+            <div class="form-group">
+                <label for="course_type" class="control-label col-xs-2">
+                    Visible:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{course.errors.is_visible}]}"></div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="course.is_visible">Visible
+                        </label>
+                    </div>
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="course_type" class="control-label col-xs-2">
+                    Type:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{course.errors.course_type}]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="course_type"
+                            placeholder="Type"
+                            ng-model="course.course_type">
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="course_note" class="control-label col-xs-2">
+                    Note:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{course.errors.note}]}"></div>
+                    <textarea ck-editor ng-model="course.note"></textarea>
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="course_course_image" class="control-label col-xs-2">
+                    Image:
+                </label>
+                <div class="col-xs-10">
+                    <button class="btn btn-info"
+                            onclick="document.getElementById('fileCourseID').click(); return false;">Rechercher
+                    </button>
+                    <!-- the hidden button -->
+                    <div errormsg save-error="{[{course.errors.image}]}"></div>
+                    <input type="file"
+                            id="fileCourseID"
+                            ng-file-select-course="onFileSelect($files)"
+                            style="visibility: hidden;">
+
+                    <!-- show image coming from the FileReader() -->
+                    <img ng-if="course.image.base64" ng-src="{[{course.image.base64}]}" width="300">
+                    <!-- show image coming from the server -->
+                    <img ng-if="course.image && !course.image.base64" ng-src="{[{course.image}]}" width="300">
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="course_description" class="control-label col-xs-2">
+                    Texte:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{course.errors.description}]}"></div>
+                    <textarea ck-editor ng-model="course.description"></textarea>
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <label for="course_price" class="control-label col-xs-2">
+                    Co&ucirc;t:
+                </label>
+                <div class="col-xs-10">
+                    <div errormsg save-error="{[{course.errors.price}]}"></div>
+                    <textarea ck-editor ng-model="course.price"></textarea>
+                </div><!-- ./col-xs-10 -->
+            </div><!-- ./form-group -->
+
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <div class="btn-group">
+                        <button class="btn btn-info"
+                                ng-disabled="!course"
+                                ng-click="saveCourse()">
+                                Sauvegarder
+                        </button>
+                    </div><!-- ./btn-group -->
+
+                    <div class="btn-group">
+ 
+                        <button class="btn btn-danger"
+                                ng-really-message="Voulez-vous vraiment supprimer ce cours ({[{ course.obj_unicode }]})?" 
+                                ng-really-click="delCancelCourse(course)" item="course"
+                                >
+                                X
+                        </button>
+                    </div><!-- ./btn-group -->
+                </div><!-- ./col-xs-offset-2 col-xs-10 -->
+            </div><!-- ./form-group -->
+        </div><!-- ./form-horizontal -->
+    </div><!-- ./isModCourse -->
+</div><!-- ./row -->

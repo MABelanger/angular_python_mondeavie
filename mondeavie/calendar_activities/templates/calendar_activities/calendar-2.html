@@ -1,0 +1,174 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html ng-app="appCalendar">
+<head>
+
+    <style>
+        @font-face {
+        font-family: 'Icomoon';
+        src:url('//static00.liki.com/static/style/fonts/icomoon/icomoon.v089.eot');
+        src: url('//static00.liki.com/static/style/fonts/icomoon/icomoon.v089.eot?#iefix') format('eot'),
+            url('//static00.liki.com/static/style/fonts/icomoon/icomoon.v089.woff') format('woff'),
+            url('//static00.liki.com/static/style/fonts/icomoon/icomoon.v089.svg#icomoon') format('svg'),
+            url('//static00.liki.com/static/style/fonts/icomoon/icomoon.v089.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        }
+        @font-face {
+        font-family: 'Gotham';
+        src:url('//static03.liki.com/static/style/fonts/gotham/gotham.v089.eot');
+        src:local('Gotham'),
+         url('//static03.liki.com/static/style/fonts/gotham/gotham.v089.eot?#iefix') format('eot'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham.v089.woff') format('woff'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham.v089.svg#gotham') format('svg'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham.v089.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        }
+        @font-face {
+        font-family: 'Gotham';
+        src:url('//static03.liki.com/static/style/fonts/gotham/gotham-bold.v089.eot');
+        src:local('Gotham Bold'),
+         url('//static03.liki.com/static/style/fonts/gotham/gotham-bold.v089.eot?#iefix') format('eot'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham-bold.v089.woff') format('woff'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham-bold.v089.svg#gotham-bold') format('svg'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham-bold.v089.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        }
+        @font-face {
+        font-family: 'Gotham';
+        src:url('//static03.liki.com/static/style/fonts/gotham/gotham-italic.v089.eot');
+        src:local('Gotham Italic'),
+         url('//static03.liki.com/static/style/fonts/gotham/gotham-italic.v089.eot?#iefix') format('eot'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham-italic.v089.woff') format('woff'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham-italic.v089.svg#gotham-italic') format('svg'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham-italic.v089.ttf') format('truetype');
+        font-weight: 400;
+        font-style: italic;
+        }
+        @font-face {
+        font-family: 'Gotham';
+        src:url('//static03.liki.com/static/style/fonts/gotham/gotham-bold-italic.v089.eot');
+        src:local('Gotham Bold Italic'),
+         url('//static03.liki.com/static/style/fonts/gotham/gotham-bold-italic.v089.eot?#iefix') format('eot'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham-bold-italic.v089.woff') format('woff'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham-bold-italic.v089.svg#gotham-bold-italic') format('svg'),
+            url('//static03.liki.com/static/style/fonts/gotham/gotham-bold-italic.v089.ttf') format('truetype');
+        font-weight: 700;
+        font-style: italic;
+        }
+    </style>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+
+    <meta name="viewport" content="width=320, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{% static "calendar_activities/css/main.css" %}">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-animate.js"></script>
+
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-route.js"></script>
+
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-cookies.js"></script>
+
+    <!-- AngularJs Application -->
+    <script type="text/javascript"
+        src="{% static "calendar_activities/angular/apps/calendar_activities/controllers/app_calendar_activities.js" %}"></script>
+    <style>
+        iframe {
+            border-bottom: 1px solid #4c7326;
+            padding:0;
+            margin:0;
+            display:block;
+        }
+        nav {
+            background-color: #91C85B;
+            font-weight: bold;
+            font-family: Gotham, sans-serif;
+        }
+
+        .navbar-brand,
+        .navbar-nav li a {
+            line-height: 100px;
+            height: 100px;
+            padding-top: 0;
+            color:#5A8727;
+        }
+        .navbar-right {
+            padding-right: 50px;
+        }
+
+        .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+            background-color: #91C85B;
+            color: #1E2714;
+        }
+
+        li .active {
+            color: #060606;
+        }
+        p a, a:hover, a:focus {
+            color: #333;
+        }
+        p a {
+            text-decoration: underline!important;
+        }
+    </style>
+    <meta name="fragment" content="!">
+</head>
+<body>
+
+      <!-- Static navbar -->
+      <nav class="navbar-fixed-top navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">&nbsp;</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/">BOUTIQUE</a></li>
+              <li><a href="/qui-nous-sommes">QUI NOUS SOMMES?</a></li>
+              <li class="active"><a href="/cours-ateliers">COURS & ATELIERS</a></li>
+              <li><a href="/groupe-d-achats">GROUPE D'ACHATS</a></li>
+              <li><a href="/contactez-nous">CONTACTEZ-NOUS</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+<div class="app-container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div ng-view autoscroll="true">
+        </div><!-- ng-view -->
+    </div><!-- container -->
+</div><!-- ./appCalendar -->
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

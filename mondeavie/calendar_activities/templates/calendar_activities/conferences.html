@@ -1,0 +1,9 @@
+{% load staticfiles %}
+
+{% include "calendar_activities/bootstrap_tab.html" with tab_active="conferences" %}
+
+<div class="conf-top-container">
+	{% for day_conference in day_conferences %}
+		{% include "calendar_activities/day_conference.html" %}
+	{% endfor %}
+</div><!-- ./conf-top-container -->

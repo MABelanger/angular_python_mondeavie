@@ -1,0 +1,107 @@
+<div class="row">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <h4>Jours de conference</h4>
+                <div class="btn-group dropup">
+                    <button type="button" class="btn dropdown-toggle dropup"
+                    ng-class="{'btn-success': dayConference.success==true, 'btn-info': dayConference.success!=true}"
+                    data-toggle="dropdown">
+                        <span ng-show="dayConference.id">
+                            {[{ dayConference.day_name }]}
+                        </span>
+                        <span ng-show="!dayConference.id">
+                            Jours de cours...
+                        </span>
+                        <span class="caret"></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat="dayConferenceOpt in dayConferences">
+                            <a href="" ng-click="selectDayConference(dayConferenceOpt)">
+                                {[{ dayConferenceOpt.day_name }]}
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            type="button"
+                            ng-disabled="!dayConference.id"
+                            ng-click="modDayConference()">
+                            Modifier
+                    </button>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            ng-click="newDayConference()">
+                            Nouveau
+                    </button>
+                </div><!-- ./btn-group -->
+            </div><!-- ./col-xs-offset-2 col-xs-10 -->
+        </div><!-- ./form-group -->
+    </div><!-- ./form-horizontal -->
+</div><!-- ./row -->
+
+<div ng-show="isModDayConference">
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-1">
+                    <br>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="dayConference.is_full"><strong>Complet</strong>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    {% include "admin_activities/datepicker.html" with ng_model='dayConference.day' id_model='daySchedule-day' label='Date:' errors='dayConference.errors.day' %}
+
+                </div>
+                <div class="col-sm-2">
+                    D&eacute;but:
+                    <div errormsg save-error="{[{ dayConference.errors.hour_start}]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="day_schedule_hour_end"
+                            placeholder="00:00h"
+                            ng-model="dayConference.hour_start">
+                </div><!-- ./col-sm-1 -->
+
+                <div class="col-sm-2">
+                    Fin:
+                    <div errormsg save-error="{[{ dayConference.errors.hour_end}]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="day_schedule_hour_end"
+                            placeholder="00:00h"
+                            ng-model="dayConference.hour_end">
+                </div><!-- ./col-sm-2 -->
+
+                <div class="col-sm-3">
+                    <br>
+                    <div class="btn-group">
+                        <button class="btn btn-info"
+                                ng-class="{'btn-success': dayConference.success==true, 'btn-info': dayConference.success!=true}"
+                                ng-disabled="!dayConference"
+                                ng-click="saveDayConference(dayConference)">
+                                Sauvegarder
+                        </button>
+                    </div><!-- ./btn-group -->
+
+                    <div class="btn-group">
+                        <button class="btn btn-danger"
+                                ng-really-message="Voulez-vous vraiment supprimer cette date ({[{ dayConference.day_name }]})?" 
+                                ng-really-click="delCancelDayConference(dayConference)" item="modelObj"
+                                >
+                                X
+                        </button>
+                    </div><!-- ./btn-group -->
+                </div><!-- ./col-xs-offset-2 col-xs-10 -->
+            </div>
+        </div>
+    </div>
+</div><!-- ./ng-show=isModDayConference -->

@@ -1,0 +1,50 @@
+     
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div errormsg save-error="{[{dayConference.errors.day}]}"></div>
+                <div class="col-xs-offset-2">
+                    {% include "admin_activities/datepicker.html" with ng_model='dayConference.day' id_model='dayConference' label='Date:' errors='dayConference.errors.day' %}
+                </div><!-- ./col-sm-offset-2 col-sm-2 -->
+
+                <div class="col-sm-2">
+                    D&eacute;but:
+                    <div errormsg save-error="{[{dayConference.errors.hour_start}]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="day_schedule_hour_end"
+                            placeholder="00:00h"
+                            ng-model="dayConference.hour_start">
+                </div><!-- ./col-sm-1 -->
+
+                <div class="col-sm-2">
+                    Fin:
+                    <div errormsg save-error="{[{dayConference.errors.hour_end}]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="day_schedule_hour_end"
+                            placeholder="00:00h"
+                            ng-model="dayConference.hour_end">
+                </div><!-- ./col-sm-2 -->
+
+                <div class="col-sm-3">
+                    <br>
+                    <div class="btn-group">
+                        <button class="btn btn-info"
+                                ng-class="{'btn-success': dayConference.success==true, 'btn-info': dayConference.success!=true}"
+                                ng-disabled="!dayConference"
+                                ng-click="saveDayConference(dayConference)">
+                                Sauvegarder
+                        </button>
+                    </div><!-- ./btn-group -->
+
+                    <div class="btn-group">
+                        <button class="btn btn-danger"
+                                ng-click="delCancelDayConference(dayConference)">
+                                X
+                        </button>
+                    </div><!-- ./btn-group -->
+                </div><!-- ./col-xs-offset-2 col-xs-10 -->
+            </div>
+        </div>
+    </div>

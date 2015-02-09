@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<div class="row">
+	<div class="col-sm-12">
+		<div class="col-sm-12 conf-container">
+
+			<!-- row -->
+				<div class="col-sm-12 text-center">
+					<h4 class="text-uppercase">{{ day_conference.conference.title }}</h4>
+				</div><!-- ./col-sm-12 text-center -->
+			<!-- ./row -->
+
+			<!-- row -->
+				<div class="col-sm-2 text-center">
+					{% if day_conference.conference.image %}
+						<img class="conf-image radius-img" src="{% static day_conference.conference.image.url %}" alt="image conference"/>
+					{% endif %}
+				</div><!-- ./col-sm-2 -->
+
+				<div class="col-sm-10">
+				</div><!-- ./col-sm-8 -->
+			<!-- ./row -->
+
+				<table class="conf-table">
+					<tr>
+						<td class="all-label all-label-align">Date:</td>
+						<td>
+							{{ day_conference.day }}
+						</td>
+					</tr>
+					<tr>
+						<td class="all-label all-label-align">Heure:</td>
+						<td>
+							{{ day_conference.hour_start|time:"H:i" }} &agrave;
+							{{ day_conference.hour_end|time:"H:i" }}
+						</td>
+					</tr>
+				</table>
+				<div class="conf-description">
+					{% if day_conference.conference.abstract != "" %}
+						{{ day_conference.conference.abstract|safe }}
+					{% else %}
+						{{ day_conference.conference.description|safe }}
+					{% endif %}
+				</div>
+			<!-- row -->
+			<div class="col-sm-12 text-center">
+	            <a href="#/conferences/{{ day_conference.conference.id }}" class="btn my-btn">En savoir plus > </a>
+			</div><!-- ./col-sm-12 text-center -->
+			<!-- ./row -->
+		</div>
+	</div><!-- col-sm-12 -->
+</div><!-- row -->

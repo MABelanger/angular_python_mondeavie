@@ -1,0 +1,115 @@
+<div class="row">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <h4>Schedules</h4>
+                <div class="btn-group">
+                    <button type="button" class="btn dropdown-toggle"
+                    ng-class="{'btn-success': schedule.success==true, 'btn-info': schedule.success!=true}"
+                    data-toggle="dropdown">
+                        <span ng-show="schedule.id">
+                            {[{ schedule.name }]}
+                        </span>
+                        <span ng-show="!schedule.id">
+                            Schedule...
+                        </span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat="scheduleOpt in schedules">
+                            <a href="" ng-click="selectSchedule(scheduleOpt)">
+                                {[{ scheduleOpt.name }]}
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            type="button"
+                            ng-disabled="!schedule.id"
+                            ng-click="modSchedule()">
+                            Modifier
+                    </button>
+                </div><!-- ./btn-group -->
+                <div class="btn-group">
+                    <button class="btn btn-info"
+                            ng-click="newSchedule()">
+                            Nouveau
+                    </button>
+                </div><!-- ./btn-group -->
+            </div><!-- ./col-xs-offset-2 col-xs-10 -->
+        </div><!-- ./form-group -->
+    </div><!-- ./form-horizontal -->
+</div><!-- ./row -->
+
+
+<div ng-show="isModSchedule">
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="schedule_name" class="control-label col-xs-2">
+                    <br>
+                    Titre:
+                </label>
+                <div class="col-sm-3">
+                    &nbsp;
+                    <div errormsg save-error="{[{schedule.errors.name}]}"></div>
+                    <input type="text"
+                            class="form-control"
+                            id="schedule_name"
+                            placeholder="Titre"
+                            ng-model="schedule.name">
+                    </input>
+                </div><!-- ./col-sm-3 -->
+            </div><!-- ./form-group -->
+        </div><!-- ./form-horizontal -->
+    </div><!-- ./row -->
+
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="schedule_name" class="control-label col-xs-2">
+                    <br>
+                    Description:
+                </label>
+                <div class="col-xs-10">
+                    &nbsp;
+                    <div errormsg save-error="{[{schedule.errors.description}]}"></div>
+                    <textarea ck-editor ng-model="schedule.description"></textarea>
+                </div><!-- ./col-sm-3 -->
+            </div><!-- ./form-group -->
+        </div><!-- ./form-horizontal -->
+    </div><!-- ./row -->
+
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <div class="btn-group">
+                        <button class="btn btn-info"
+                                ng-disabled="!schedule"
+                                ng-click="saveSchedule()">
+                                Sauvegarder
+                        </button>
+                    </div><!-- ./btn-group -->
+
+                    <div class="btn-group">
+                        <button class="btn btn-danger"
+                                ng-really-message="Voulez-vous vraiment supprimer cette schedule ({[{ schedule.name }]})?" 
+                                ng-really-click="delCancelSchedule(schedule)" item="schedule"
+                                >
+                                X
+                        </button>
+
+                    </div><!-- ./btn-group -->
+                </div><!-- ./col-xs-offset-2 col-xs-10 -->
+            </div><!-- ./form-group -->
+
+
+        </div><!-- ./form-horizontal -->
+    </div><!-- ./row -->
+</div><!-- ./isModCourse -->
+
+
+
+

@@ -1,0 +1,406 @@
+@charset "UTF-8";
+/**** _responsive.scss ****/
+@media screen and (min-width: 992px) {
+  .only-mobile {
+    display: none; }
+
+  .my-tab {
+    font-size: 1.3em;
+    font-weight: bold; } }
+@media screen and (max-width: 992px) {
+  .only-desktop {
+    display: none; }
+
+  .my-tab {
+    font-size: 1em;
+    font-weight: bold; } }
+/**** _nav.scss ****/
+/* Nav Bootstrap */
+.half-width {
+  width: 50%; }
+
+.nav-tabs {
+  border-bottom: 1px solid #5A8727; }
+  .nav-tabs > li > a {
+    background-color: #99CC66;
+    border: 0px;
+    font-weight: normal;
+    color: #5A8727;
+    font-family: Gotham, sans-serif;
+    font-size: 15px; }
+    .nav-tabs > li > a:hover {
+      background-color: #91C85B;
+      color: black; }
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border-top: 1px solid #5A8727;
+    border-left: 1px solid #5A8727;
+    border-right: 1px solid #5A8727;
+    background-color: #99CC66;
+    color: black;
+    font-family: Gotham, sans-serif; }
+
+/**** _typography.scss ****/
+body {
+  /*font-family: 'Montserrat', sans-serif;*/
+  background-color: #99CC66;
+  font-family: 'Open Sans', Verdana, 'DejaVu Sans', sans-serif;
+  /*font-family: Gotham, sans-serif;*/
+  font-size: 16px; }
+
+h4 {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.3em; }
+
+/* General links */
+a:link, a:visited {
+  text-decoration: none;
+  outline: none; }
+a:hover {
+  text-decoration: none;
+  background-color: #91C85B; }
+a:active {
+  text-decoration: none;
+  outline: none; }
+
+/* Link in the text */
+a.link-url {
+  color: #333;
+  text-decoration: underline; }
+  a.link-url:link, a.link-url:visited, a.link-url:hover, a.link-url:active {
+    text-decoration: underline;
+    outline: none; }
+
+/* Image Center */
+.radius-img {
+  border-radius: 5%;
+  width: 100%; }
+
+.all-label {
+  font-family: Gotham, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #333; }
+
+.all-label-align {
+  vertical-align: top;
+  text-align: right;
+  padding: 0px 5px 3px 0px; }
+
+.txt-red {
+  color: #a13232; }
+
+.tab {
+  margin-left: 30px; }
+
+/**** _calendar.scss ****/
+/* Calendar */
+table.cal-menu {
+  width: 100%; }
+
+table.cal {
+  border-collapse: collapse;
+  table-layout: fixed;
+  /*background-color: #D5EDC9;*/
+  width: 100%;
+  border-bottom: 1px solid #5A8727; }
+  table.cal .th.cal, table.cal td.cal {
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    vertical-align: top;
+    /* height: 40px; */
+    border-left: 1px solid #5A8727;
+    border-right: 1px solid #5A8727;
+    width: 40px;
+    overflow: hidden; }
+
+a:hover .cal-menu-tname {
+  text-decoration: none;
+  background-color: #91C85B; }
+
+a.cal {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: #333;
+  border: 1px solid transparent; }
+  a.cal:link, a.cal:visited {
+    text-decoration: none;
+    outline: none; }
+  a.cal:hover {
+    text-decoration: none;
+    background-color: #91C85B;
+    border: 1px solid #5A8727; }
+  a.cal:active {
+    text-decoration: none;
+    background-color: #91C85B;
+    border: 1px solid #5A8727; }
+
+.cal-menu-cname > a > div {
+  color: black;
+  font-family: Gotham, sans-serif;
+  font-weight: bold;
+  padding-right: 10px;
+  outline: none; }
+.cal-menu-cname > a:hover > div {
+  background-color: #91C85B;
+  text-decoration: none; }
+
+.cal-menu-cname-label {
+  padding-right: 15px;
+  display: inline-block;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+.cal-menu-icon {
+  display: inline-block;
+  width: 35px;
+  text-align: center; }
+
+.cal-menu-tname {
+  padding-right: 25px;
+  white-space: nowrap;
+  color: black;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+td.cal-menu-empty {
+  width: 35px; }
+
+/*Animate menu, Course Names with Teachers*/
+.animate-show {
+  opacity: 1; }
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all ease-out .2s;
+  transition: all ease-out .2s; }
+
+.animate-show.ng-hide-add.ng-hide-add-active {
+  -webkit-transition: all ease-in .2s;
+  transition: all ease-in .2s; }
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0; }
+
+/* Contour Table */
+.day-name {
+  border: 0px;
+  border-bottom: 1px solid #5A8727;
+  vertical-align: bottom;
+  text-align: center; }
+
+.no-border {
+  border: 0px !important; }
+
+.hour {
+  text-align: right;
+  width: 30px !important; }
+
+.cal-break {
+  height: 5px;
+  border: 1px solid #5A8727;
+  background-color: #ADDA7F;
+  text-align: center; }
+
+/**** _course_detail.scss ****/
+.coursed-data {
+  font-family: 'Open Sans', Verdana, 'DejaVu Sans', sans-serif;
+  /*font-family: Gotham, sans-serif;*/
+  font-size: 16px; }
+
+.coursed-li-day-name {
+  list-style-type: none; }
+
+.coursed-li-hour {
+  margin: 0;
+  padding: 0; }
+
+.coursed-li-schedule {
+  margin-top: 15px;
+  margin-bottom: 15px; }
+
+.coursed-image {
+  max-width: 300px; }
+
+/**** _conference.scss ****/
+.conf-top-container {
+  margin-top: 30px; }
+
+.conf-container {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #5A8727; }
+
+.conf-image {
+  max-width: 130px; }
+
+.conf-table {
+  margin-left: 14px; }
+
+.conf-description {
+  margin-left: 14px;
+  padding-top: .2em;
+  text-align: justify; }
+
+.conf-description-detail {
+  text-align: justify;
+  padding-top: 1em; }
+
+.marg-bottom {
+  margin-bottom: 20px; }
+
+.row-top-margin {
+  margin-top: 30px; }
+
+/**** _conference_detail.scss ****/
+.confd-day {
+  list-style-type: none; }
+
+.confd-image {
+  max-width: 300px; }
+
+/**** _reservation.scss ****/
+/* Reservation */
+.modal-dialog {
+  padding-top: 100px; }
+
+.modal-content {
+  background-color: #99CC66; }
+
+.reserv-cont-form {
+  margin-top: 20px; }
+
+form.reserv {
+  margin-top: 20px; }
+
+input.form-control, textarea.form-control {
+  background-color: #99CC66;
+  border: 1px solid #669933;
+  color: black; }
+
+.form-control::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #5A8727; }
+
+.form-control:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #5A8727;
+  opacity: 1; }
+
+.form-control::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #5A8727;
+  opacity: 1; }
+
+.form-control:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #5A8727; }
+
+textarea.form-control:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+  border-color: rgba(72, 117, 34, 0.8);
+  box-shadow: 0 1px 1px rgba(72, 117, 34, 0.075) inset, 0 0 8px rgba(72, 117, 34, 0.6);
+  outline: 0 none; }
+
+/* http://codepen.io/CreativeJuiz/pen/BiHzp */
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px; }
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  cursor: pointer; }
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #5A8727;
+  /*background: #f8f8f8;*/
+  border-radius: 3px; }
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: 0;
+  left: 4px;
+  font-size: 14px;
+  color: black;
+  transition: all .2s; }
+
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0); }
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1); }
+
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd; }
+
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999; }
+
+[type="checkbox"]:disabled + label {
+  color: #aaa; }
+
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 1px solid black; }
+
+/* hover style just for information */
+label:hover:before {
+  border: 1px solid black !important; }
+
+.reservation-month-name {
+  border: 1px solid #5A8727;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.reservation-day {
+  border: 1px solid #5A8727;
+  padding: 5px 10px 25px 10px; }
+
+.reservation-checkbox {
+  margin: 0; }
+
+.reservation-label {
+  display: block;
+  margin: 0; }
+
+.reservation-is-day {
+  padding-top: 10px; }
+
+/**** _buttons.scss ****/
+/* Button */
+a {
+  /* My Button */ }
+  a.my-btn {
+    /*background-color: #339933; /*#7AB83D;*/
+    color: #333;
+    padding: 10px;
+    font-family: Gotham, sans-serif;
+    font-weight: bold;
+    border: 1px solid #5A8727; }
+
+/*# sourceMappingURL=main.css.map */

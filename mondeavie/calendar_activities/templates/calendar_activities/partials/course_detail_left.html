@@ -1,0 +1,53 @@
+<!-- template label_span.html -->
+
+<table>
+    <tr class="tr-space">
+        <td class="all-label all-label-align">Cours:</td>
+        <td class="coursed-data">
+            {[{ courseDetail.course_name.name }]} avec
+            {[{ courseDetail.teacher.first_name + ' ' + 
+                courseDetail.teacher.last_name }]}
+        </td>
+    </tr>
+
+    <tr class="tr-space">
+        <td class="all-label all-label-align">Type:</td>
+        <td class="coursed-data">
+            {[{ courseDetail.course_type }]}
+        </td>
+    </tr>
+
+    <tr class="tr-space">
+        <td class="all-label all-label-align">Tel:</td>
+        <td class="coursed-data">
+            {[{ courseDetail.teacher.tel }]}
+        </td>
+    </tr>
+
+    <tr class="tr-space" ng-show="courseDetail.teacher.school_url">
+        <td class="all-label all-label-align">Lien:</td>
+        <td class="coursed-data">
+            <a class="link-url" ng-href="{[{ courseDetail.teacher.school_url }]}" target="_blank">{[{ courseDetail.teacher.school_name }]}</a>
+        </td>
+    </tr>
+
+    <tr class="tr-space" ng-show="courseDetail.note">
+        <td class="all-label all-label-align">Note:</td>
+        <td class="coursed-data">
+            <span ng-bind-html="getTrustAsHtml(courseDetail.note)"></span>
+        </td>
+    </tr>
+
+    <!--
+    <tr class="txt-red tr-space">
+        <td class="txt-red all-label all-label-align">Gratuits:</td>
+        <td valign="bottom" class="coursed-data">
+            <ul style="margin:15px; padding:5px">
+                <li>Mardi, 13 Janvier 2015 <a class="link-url" href="#">R&eacute;server</a></li>
+                <li>Jeudi 15 Janvier 2015</li>
+            </ul>
+        </td>
+    </tr>
+    -->
+</table>
+<!-- ./template label_span.html -->

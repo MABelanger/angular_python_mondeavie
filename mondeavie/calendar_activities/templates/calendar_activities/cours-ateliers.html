@@ -1,0 +1,416 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--[if lte IE 7]><html lang="fr" class="ie7 old-ie lt-ie10"><![endif]-->
+<!--[if IE 8]><html lang="fr" class="ie8 old-ie lt-ie10"><![endif]-->
+<!--[if IE 9]><html lang="fr" class="ie9 lt-ie10"><![endif]-->
+<!--[if (gte IE 10)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html lang="fr"><!--<![endif]-->
+<head>
+<style>
+@font-face {
+font-family: 'Icomoon';
+src:url('//static00.liki.com/static/style/fonts/icomoon/icomoon.v089.eot');
+src: url('//static00.liki.com/static/style/fonts/icomoon/icomoon.v089.eot?#iefix') format('eot'),
+	url('//static00.liki.com/static/style/fonts/icomoon/icomoon.v089.woff') format('woff'),
+	url('//static00.liki.com/static/style/fonts/icomoon/icomoon.v089.svg#icomoon') format('svg'),
+	url('//static00.liki.com/static/style/fonts/icomoon/icomoon.v089.ttf') format('truetype');
+font-weight: 400;
+font-style: normal;
+}
+@font-face {
+font-family: 'Gotham';
+src:url('//static03.liki.com/static/style/fonts/gotham/gotham.v089.eot');
+src:local('Gotham'),
+ url('//static03.liki.com/static/style/fonts/gotham/gotham.v089.eot?#iefix') format('eot'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham.v089.woff') format('woff'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham.v089.svg#gotham') format('svg'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham.v089.ttf') format('truetype');
+font-weight: 400;
+font-style: normal;
+}
+@font-face {
+font-family: 'Gotham';
+src:url('//static03.liki.com/static/style/fonts/gotham/gotham-bold.v089.eot');
+src:local('Gotham Bold'),
+ url('//static03.liki.com/static/style/fonts/gotham/gotham-bold.v089.eot?#iefix') format('eot'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham-bold.v089.woff') format('woff'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham-bold.v089.svg#gotham-bold') format('svg'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham-bold.v089.ttf') format('truetype');
+font-weight: 700;
+font-style: normal;
+}
+@font-face {
+font-family: 'Gotham';
+src:url('//static03.liki.com/static/style/fonts/gotham/gotham-italic.v089.eot');
+src:local('Gotham Italic'),
+ url('//static03.liki.com/static/style/fonts/gotham/gotham-italic.v089.eot?#iefix') format('eot'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham-italic.v089.woff') format('woff'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham-italic.v089.svg#gotham-italic') format('svg'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham-italic.v089.ttf') format('truetype');
+font-weight: 400;
+font-style: italic;
+}
+@font-face {
+font-family: 'Gotham';
+src:url('//static03.liki.com/static/style/fonts/gotham/gotham-bold-italic.v089.eot');
+src:local('Gotham Bold Italic'),
+ url('//static03.liki.com/static/style/fonts/gotham/gotham-bold-italic.v089.eot?#iefix') format('eot'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham-bold-italic.v089.woff') format('woff'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham-bold-italic.v089.svg#gotham-bold-italic') format('svg'),
+	url('//static03.liki.com/static/style/fonts/gotham/gotham-bold-italic.v089.ttf') format('truetype');
+font-weight: 700;
+font-style: italic;
+}
+</style>
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+<link rel="icon" type="image/png" href="//static00.liki.com/photo/favicon/effd7ff8c6344c0dda15f8d6ffd7df23/v1414900475/0_xx/favicon.png" />
+<link rel="stylesheet" type="text/css" href="//static00.liki.com/file/style/theme/static_1200px.min.v089.css" />
+<link rel="stylesheet" type="text/css" href="//mondeavie.liki.com/theme/styles/theme.v971143.css" />
+<link rel="stylesheet" type="text/css" href="//static00.liki.com/file/style/base.min.v089.css" />
+<link rel="stylesheet" type="text/css" href="//static00.liki.com/static/style/desktop/style.v089.css" />
+<link rel="stylesheet" type="text/css" media="print" href="//static02.liki.com/static/style/shared/print.v089.css" />
+<script type="text/javascript">
+var g_arL = { _L: {}, _LU: {} };
+function _L(str) {
+	return vsprintf(g_arL._L[str] || str, Array.slice(arguments, 1));
+}
+function _LU(str) {
+	return vsprintf(g_arL._LU[str] || str, Array.slice(arguments, 1)).slugify();
+}
+(function(exports){
+	function _D(method) {
+		return function(str) {
+			var args = Array.slice(arguments);
+			return {
+				toString: function(){
+					return method.apply(this, args.append(arguments));
+				}
+			};
+		};
+	}
+	exports._LD = _D(_L);
+	exports._LUD = _D(_LU);
+})(window);
+
+var CLOWN = {"user":{"id":0,"login":null,"language":"fr_CA","language_code":"fr"},"skin":{"color":"#80bf40"},"richtextify":{"library_url":"https:\/\/seller.liki.com\/boutique\/pages\/photos?vid=true&richtextify=1"}};
+SELECTED_DEVICE = "desktop";
+CURRENT_DEVICE = "desktop";
+NAVIGATION_TARGET = 1;
+DOMAINS = ["www.liki.com","mondeavie.liki.com","www.mondeavie.ca"];
+</script>
+<script type="text/javascript" src="//static01.liki.com/file/script/libs.min.v089.js"></script>
+<script type="text/javascript" src="//static00.liki.com/file/script/frame.min.v089.js"></script>
+<script type="text/javascript" src="//static01.liki.com/static/script/calendar/lang/fr_CA.v089.js"></script>
+	<meta charset="UTF-8" />
+	<meta name="Author" content="Eco-Boutique Un Monde &agrave; Vie" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="imagetoolbar" content="no" />
+
+	
+	<link rel="canonical"  type="text/html" href="http://www.mondeavie.ca/cours-ateliers" />
+	<link rel="alternate" media="only screen and (max-width : 640px)" type="text/html" href="http://www.mondeavie.ca/m/cours-ateliers" />
+	<link rel="alternate" media="only screen and (min-width: 641px) and (max-width: 1024px)" type="text/html" href="http://www.mondeavie.ca/t/cours-ateliers" />
+	<link rel="alternate" hreflang="en"  type="text/html" href="http://www.mondeavie.ca/en/page/cours-ateliers-956" />
+	<link rel="alternate" hreflang="fr"  type="text/html" href="http://www.mondeavie.ca/fr/cours-ateliers" />
+
+	<title>Cours & Ateliers, Eco-Boutique Un Monde à Vie</title>
+
+    <meta name="viewport" content="width=320, initial-scale=1">
+
+
+
+    <link rel="stylesheet" href="{% static "calendar_activities/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "calendar_activities/css/main.css" %}">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-animate.js"></script>
+
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-route.js"></script>
+
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular-cookies.js"></script>
+
+    <!-- AngularJs Application -->
+    <script type="text/javascript"
+        src="{% static "calendar_activities/angular/apps/calendar_activities/controllers/app_calendar_activities.js" %}"></script>
+
+</head>
+<body xmlns:fb="http://ogp.me/ns/fb#">
+<div id="page">
+
+<div id="header-container">
+<div id="header" class="color-head">
+
+
+	
+
+	<div class="header-title"><div class="p3"><a href="/">Eco-Boutique Un Monde à Vie</a></div></div>
+
+
+
+	<div class="right">
+		<div class="fr p3">
+	<ul class="menu bar-icon" ><li><a  href="/commande/panier/cart_live"  id="mn-cart"  title="Votre panier" ><span class="icon-icomoon-cart" ></span></a></li></ul><div id="language_dd"  class="dropdown fr" ><a  class="dropdown-toggle"  href="#"  title="Fr " >Fr <b class="caret"></b></a><ul class="menu dropdown-menu pull-right" ><li><a  class="icon-icomoon-spacer"  href="/en/page/cours-ateliers-956"  rel="alternate"  lang="en"  hreflang="en"  title="English" >English</a></li><li class="on" ><a  class="icon-icomoon-ok icon-icomoon-spacer"  href="/cours-ateliers"  rel="alternate"  lang="fr"  hreflang="fr"  title="Fran&ccedil;ais" >Français</a></li></ul></div>
+<script type="text/javascript">
+			window.addEvent("domready", function(){
+				var el = $("language_dd").getParent(),
+				dd = new Bootstrap.Dropdown( el );
+			});
+			
+</script>
+<ul class="menu bar" ><li><a  class="icon-icomoon-liki-flower"  href="/mon-compte/connexion?redirect_url=%2Fcours-ateliers"  rel="popup"  title="Connectez-vous" >Connectez-vous</a></li><li><a  class="icon-icomoon-liki-flower"  href="/mon-compte/creation/profil"  title="Cr&eacute;er un compte" >Créer un compte</a></li></ul>		</div>
+<form name="fm_catalog" id="fm_catalog" class="clearfix fr"  style="width:" action="/recherche?action_fm_catalog=true" method="GET"><div  class="mh0 xsmall" ><div id="dyn_fm_catalog_q" class="formElement raw"  ><div><div id="dyn_fm_catalog_q_err" class="icon-icomoon-warning-sign color-negative toggle-hide f10 mb12"></div><input  class="input"  title="Recherche"  type='text' id='fm_catalog_q' name='q' size='30'  placeholder="Recherche"  maxlength='255' ></div></div><div id="dyn_fm_catalog_submit" class="formElement raw"  ><div class="r" ><div id="dyn_fm_catalog_submit_err" class="icon-icomoon-warning-sign color-negative toggle-hide f10 mb12"></div><div id="xbutsub_fm_catalog_load" class="spinner-msg ellipsis text no-fluid" style="display:none;"><span class="icon-spin icon-icomoon-spinner"></span>Chargement...</div><span id="xbutsub_fm_catalog"><span class="concealed"><input tabindex="-1" type="submit" /></span><a  class="text"  href="javascript:submitform(&quot;fm_catalog&quot;);"  title="Recherche"  rel="1" ><span class="icon-icomoon-search" ></span></a></span></div></div></div>
+<script type="text/javascript">
+this["submit_fm_catalog"] = function (ev){
+	var retVal = true, self = $(this);
+if($('dyn_fm_catalog_q_err') != null){
+$('dyn_fm_catalog_q_err').innerHTML = '';
+$('dyn_fm_catalog_q_err').addClass('toggle-hide');
+}
+$$('#fm_catalog_q').removeClass('color-negative');
+if($('fm_catalog_q') != null){
+(function(){
+ var el = $("fm_catalog_q");
+ if(!Form.Placeholder || !el) return;
+ el.retrieve("Form.Placeholder").clear();
+})();
+}
+if(!retVal) {
+	ev.preventDefault();
+}
+else {
+	self.fireEvent("valid", [ev]);
+}
+};
+hash_ajax_el["fm_catalog"] = {};
+window.addEvent("domready", function(){
+var id = "fm_catalog",
+	form = Object.hasOwnProperty(this, id) ? this[id] : $(id);
+if(!form) return;
+form.removeEvents("submit");
+form.addEvent("submit", this["submit_" + id]);
+(function(){
+ var el = $("fm_catalog_q");
+ if(!Form.Placeholder || !el) return;
+ el.store("Form.Placeholder", new Form.Placeholder(el.get("id")));
+})();
+});
+</script>
+</form>	</div>
+	<div class="cb"></div>
+</div>
+<div  class="nav-container" ><div id="texture-header" class="notablet"></div><div id="nav"  class="container-restrict" ><div  class="clearfix"><a href="/"  class="img toggle-hide" ><img src="//static00.liki.com/photo/skin/effd7ff8c6344c0dda15f8d6ffd7df23/v1414900473/0/eco-boutique-un-monde-a-vie.png" alt="Eco-Boutique Un Monde à Vie" title="Eco-Boutique Un Monde à Vie" /></a><ul class="menu main" ><li><a  href="/"  title="Boutique" >Boutique</a></li><li><a  href="/qui-nous-sommes"  title="Qui nous sommes?" >Qui nous sommes?</a></li><li class="on" ><a  href="/cours-ateliers"  title="Cours &amp; Ateliers" >Cours & Ateliers</a></li><li><a  href="/groupe-d-achats"  title="Groupe d&#039;achats" >Groupe d'achats</a></li><li><a  href="/contactez-nous"  title="Contactez-nous" >Contactez-nous</a></li></ul></div></div><div class="cb"></div></div></div>
+<div id="container" class="clearfix">
+<div class="content"><h1 class="fl">Cours & Ateliers</h1><div class="fr small soft"></div><div class="cb"></div><div class="clearfix"><div  class="richtext" ><div class="box-2"><div class="bloc-2" data-richtextify-editable="true"><p>
+
+
+<div class="app-container" ng-app="appCalendar">
+    <a id="top-anchor"></a>&nbsp;
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div ng-view>
+        </div><!-- ng-view -->
+    </div><!-- container -->
+</div><!-- ./appCalendar -->
+
+</p></div></div></div></div></div><script type="text/javascript">
+window.addEvent("load", function(){
+new Fx.SmoothScroll();
+InitButton();
+		!function(){
+			var container, logo, ul, computesize, height;
+			if(!(container = $('#nav')))
+				return;
+			if(!(logo = container.getElement('.img.toggle-hide')))
+				return;
+			if(!(ul = container.getElement('UL')))
+				return;
+
+			computesize = ul.getComputedSize({styles: ['padding','border', 'margin']});
+
+			height = computesize.totalHeight;
+//			if(height > 120) height = 120;
+			
+			logo.getElement('IMG').setStyles({
+				height: height - 4,
+				margin: '2px 0'
+			});
+			logo.removeClass('toggle-hide');
+		}();
+new ScrollifyDoc();
+		AdjustFooterBg();
+		window.addEvent('resize:throttle(100)', AdjustFooterBg);
+
+});
+</script>
+<div class="cb"></div>
+<script type="text/javascript">
+CrossFrameCall("root", "replaceViewerTitle", [null,"Cours & Ateliers"]);
+</script>
+		<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq_push = (function(){
+			function NumberToAlpha(n) {
+				for(var r = []; n >= 0; n = (n / 26) - 1)
+					r.unshift( String.fromCharCode(n % 26 + 0x41) );
+				return r.join("");
+			}
+			var trackers = [];
+			["UA-34666308-1","UA-57237769-1"].each(function(id, i){
+				var t = NumberToAlpha(i);
+				_gaq.push([t +'._setAccount', id]);
+				trackers.push(t);
+			});
+			
+			return function() {
+				Array.slice(arguments).each(function(args){
+					var method = args.shift();
+					trackers.each(function(name){
+						 _gaq.push(function(){
+							var t = _gat._getTrackerByName(name);
+							t[method].apply(t, args);
+						})
+					})
+				})
+			}
+		})();
+				_gaq_push(
+			['_setSiteSpeedSampleRate', 5],
+			["_trackPageview"]
+		);
+		
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		</script>
+		</div>
+
+<div id="footer-container">
+	<div id="texture-footer"></div>
+	<div id="footer"  class="container-restrict color-head" >
+		<div class="box-1-4">
+
+	<div class="bloc">
+		<h3>Eco-Boutique Un Monde à Vie</h3>
+		<ul class="menu" ><li><a  href="/"  title="Boutique" >Boutique</a></li><li><a  href="/qui-nous-sommes"  title="Qui nous sommes?" >Qui nous sommes?</a></li><li class="on" ><a  href="/cours-ateliers"  title="Cours &amp; Ateliers" >Cours & Ateliers</a></li><li><a  href="/groupe-d-achats"  title="Groupe d&#039;achats" >Groupe d'achats</a></li></ul>	</div>
+
+	<div class="bloc">
+		<h3>Utilisation du site</h3>
+		<ul class="menu" ><li><a  href="/livraison"  title="Livraison" >Livraison</a></li><li><a  href="/retours-et-garanties"  title="Retours et Garanties" >Retours et Garanties</a></li><li><a  href="/confidentialite"  rel="popup"  title="Confidentialit&eacute;" >Confidentialité</a></li><li><a  href="/conditions-d-utilisation"  rel="popup"  title="Conditions d&#039;utilisation" >Conditions d'utilisation</a></li></ul>	</div>
+	
+			<div class="bloc">
+			<h3>Produits</h3>
+			<ul class="menu" ><li><a  href="/produits/7581"  title="Alimentation" >Alimentation</a></li><li><a  href="/produits/7661"  title="Id&eacute;es cadeaux" >Idées cadeaux</a></li><li><a  href="/produits/7662"  title="maman et b&eacute;b&eacute;" >maman et bébé</a></li><li><a  href="/produits/7643"  title="Maman et enfants" >Maman et enfants</a></li><li><a  href="/produits/produits-ecologiques-7910"  title="Produits &eacute;cologiques" >Produits écologiques</a></li><li><a  class="icon-icomoon-caret-right"  href="#"  id="549900e1857587.24618152"  data-display="mn_more_product"  data-display-hide="549900e1857587.24618152"  title="Plus" >Plus</a></li></ul><ul id="mn_more_product" class="menu toggle-hide" ><li><a  href="/produits/7598"  title="Produits m&eacute;nagers" >Produits ménagers</a></li><li><a  href="/produits/7594"  title="Sant&eacute; beaut&eacute;" >Santé beauté</a></li><li><a  href="/produits/7591"  title="Suppl&eacute;mentation" >Supplémentation</a></li></ul>		</div>
+			
+	<div class="bloc">
+		<h3>Aide</h3>
+		<li>(450) 474-5078</li><ul class="menu" ><li><a  href="/contactez-nous"  title="Contactez-nous" >Contactez-nous</a></li><li><div id="device_version_dd"  class="dropdown" ><a  class="dropdown-toggle"  href="#"  title="Version du site " >Version du site <b class="caret"></b></a><ul class="menu dropdown-menu" ><li><a  class="icon-icomoon-desktop-ok"  href="/d/cours-ateliers"  rel="canonical"  title="Version compl&egrave;te" >Version complète</a></li><li><a  class="icon-icomoon-tablet"  href="/t/cours-ateliers"  rel="alternate"  title="Version tablette" >Version tablette</a></li><li><a  class="icon-icomoon-mobile"  href="/m/cours-ateliers"  rel="alternate"  title="Version mobile" >Version mobile</a></li></ul></div>
+<script type="text/javascript">
+			window.addEvent("domready", function(){
+				var el = $("device_version_dd").getParent(),
+				dd = new Bootstrap.Dropdown( el );
+			});
+			
+</script>
+</li></ul>	</div>
+	
+	<div class="footer-bottom cb">
+		<form name="fm_newsletter" id="fm_newsletter" class="clearfix"  style="width:100%" action="/cours-ateliers?action_fm_newsletter=true" method="POST"><div  class="form" ><div class="formElement raw"><label for="fm_newsletter_email" class="text color-soft">S'inscrire à l'infolettre *</label></div><div id="dyn_fm_newsletter_email" class="formElement raw"  ><div><div id="dyn_fm_newsletter_email_err" class="icon-icomoon-warning-sign color-negative toggle-hide f10 mb12"></div><div class="icon-input-icomoon-envelope"><input  class="input"  title="S&#39;inscrire à l&#39;infolettre"  type='text' id='fm_newsletter_email' name='email' size='32'  placeholder="Adresse courriel"  maxlength='255' ></div></div></div><div id="dyn_fm_newsletter_submit" class="formElement raw"  ><div class="r" ><div id="dyn_fm_newsletter_submit_err" class="icon-icomoon-warning-sign color-negative toggle-hide f10 mb12"></div><div id="xbutsub_fm_newsletter_load" class="spinner-msg ellipsis text no-fluid" style="display:none;"><span class="icon-spin icon-icomoon-spinner"></span>Chargement...</div><span id="xbutsub_fm_newsletter"><span class="concealed"><input tabindex="-1" type="submit" /></span><a  class="button icon-icomoon-angle-right-after"  href="javascript:submitform(&quot;fm_newsletter&quot;);"  title="M&#039;inscrire"  rel="1" >M'inscrire</a></span></div></div><div id="dyn_fm_newsletter_social" class="formElement raw"  ><div class="text" ><div id="dyn_fm_newsletter_social_err" class="icon-icomoon-warning-sign color-negative toggle-hide f10 mb12"></div><div class="bar-button xsmall"><span class="text no-fluid">ou s'inscrire via</span><a  class="button soft button-facebook icon-icomoon-facebook"  href="/mon-compte/creation?social=1"  title="Facebook"  rel="4" >Facebook</a><a  class="button soft button-google icon-icomoon-google-plus-2"  href="/mon-compte/creation?social=2"  title="Google +"  rel="4" >Google +</a><a  class="button soft button-liki icon-icomoon-liki-flower"  href="/mon-compte/connexion"  title="Liki"  rel="4" >Liki</a></div></div></div></div>
+<script type="text/javascript">
+this["submit_fm_newsletter"] = function (ev){
+	var retVal = true, self = $(this);
+if($('dyn_fm_newsletter_email_err') != null){
+$('dyn_fm_newsletter_email_err').innerHTML = '';
+$('dyn_fm_newsletter_email_err').addClass('toggle-hide');
+}
+$$('#fm_newsletter_email').removeClass('color-negative');
+if($('fm_newsletter_email') != null){
+(function(){
+ var el = $("fm_newsletter_email");
+ if(!Form.Placeholder || !el) return;
+ el.retrieve("Form.Placeholder").clear();
+})();
+if($('fm_newsletter_email').value == ''){if($('fm_newsletter_email') != null){
+if($('fm_newsletter_email').type != 'hidden'){
+$('fm_newsletter_email').focus();
+if($('dyn_fm_newsletter_email_err') != null){
+document.documentElement.scrollTop = getOffsetTop($('dyn_fm_newsletter_email_err'), true);
+}
+}$('fm_newsletter_email').addClass('color-negative');
+}if($('dyn_fm_newsletter_email_err') != null){
+$('dyn_fm_newsletter_email_err').innerHTML = 'Ce champ doit être rempli.';
+$('dyn_fm_newsletter_email_err').removeClass('toggle-hide');
+}
+retVal = false;
+}if($('fm_newsletter_email').value != '' && !isMailFormat( $('fm_newsletter_email').value )){if($('fm_newsletter_email') != null){
+if($('fm_newsletter_email').type != 'hidden'){
+$('fm_newsletter_email').focus();
+if($('dyn_fm_newsletter_email_err') != null){
+document.documentElement.scrollTop = getOffsetTop($('dyn_fm_newsletter_email_err'), true);
+}
+}$('fm_newsletter_email').addClass('color-negative');
+}if($('dyn_fm_newsletter_email_err') != null){
+$('dyn_fm_newsletter_email_err').innerHTML = 'Le format de l&#39;adresse courriel est invalide.';
+$('dyn_fm_newsletter_email_err').removeClass('toggle-hide');
+}
+retVal = false;
+}}
+ev.preventDefault();
+if(retVal) {
+	self.fireEvent("valid", [ev]);
+var req = new Request.JSON({
+	method: self.get("method") || "post",
+	data: self,
+	url: self.get("action"),
+	onSuccess: function(){
+					self.fireEvent('return', Array.slice(arguments));
+					(ResponseFormHandler).apply(this, arguments);
+				}
+});
+req.send();
+}
+};
+hash_ajax_el["fm_newsletter"] = {};
+window.addEvent("domready", function(){
+var id = "fm_newsletter",
+	form = Object.hasOwnProperty(this, id) ? this[id] : $(id);
+if(!form) return;
+form.removeEvents("submit");
+form.addEvent("submit", this["submit_" + id]);
+(function(){
+ var el = $("fm_newsletter_email");
+ if(!Form.Placeholder || !el) return;
+ el.store("Form.Placeholder", new Form.Placeholder(el.get("id")));
+})();
+});
+</script>
+</form><ul class="social-panel-button fr"><li><a class="circle" title="Joignez-nous sur Facebook" target="_blank" href="https://www.facebook.com/mondeavie"><span class="facebook icon-icomoon-facebook"></span></a></li><li><a class="circle" title="Joignez-nous sur Twitter" target="_blank" href="https://twitter.com/EcoBoutiqueMAV"><span class="twitter icon-icomoon-twitter"></span></a></li><li><a class="circle" title="Joignez-nous sur Pinterest" target="_blank" href="https://www.pinterest.com/mondeavie"><span class="pinterest icon-icomoon-pinterest"></span></a></li></ul>	
+		<div class="footer_cr clearfix">
+			<div class="fl">
+			2014 © Eco-Boutique Un Monde à Vie				</div>
+
+			<a class="icon-big icon-icomoon-liki-logo-after fr nomobile" href="//www.liki.com">Propulsé par <span class="concealed">Liki</span></a>
+		</div>
+	</div>
+</div>
+	</div>
+</div>
+
+</div>
+</body>
+</html>

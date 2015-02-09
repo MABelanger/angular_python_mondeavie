@@ -1,0 +1,84 @@
+{% load staticfiles %}
+
+{% include "calendar_activities/bootstrap_tab.html" with tab_active="conferences"%}
+
+<div class="row conf-top-container">
+	<div class="col-sm-2">
+	</div>
+
+	<div class="col-sm-8 text-center">
+		<h4 class="text-center text-uppercase">{[{ conferenceDetail.title }]}</h4>
+		<img class="confd-image radius-img" ng-src="{[{ conferenceDetail.image }]}"/>
+	</div>
+
+	<div class="col-sm-2">
+	</div>
+</div>
+
+<div class="row marg-bottom">
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-10">
+		<div class="conf-description-detail marg-bottom">
+			<span ng-bind-html="getTrustAsHtml(conferenceDetail.description)">
+	        </span>
+		</div>
+		<table>
+			<tr>
+				<td class="all-label all-label-align ">Dur&eacute;e:</td>
+				<td>{[{ conferenceDetail.day_conferences[0].duration }]}h</td>
+			</tr>
+			<tr>
+				<td class="all-label all-label-align">Avec:</td>
+
+				<td>{[{ conferenceDetail.speakers_str }]} </td>
+			</tr>
+			<tr ng-show="conferenceDetail.tel">
+				<td class="all-label all-label-align">Tel:</td>
+				<td>
+					{[{ conferenceDetail.tel }]}
+				</td>
+			</tr>
+			<tr ng-show="conferenceDetail.school_url">
+				<td class="all-label all-label-align">Lien:</td>
+				<td>
+					<a class="link-url" target="_blank" ng-href="{[{ conferenceDetail.school_url }]}">{[{ conferenceDetail.school_name }]}</a>
+				</td>
+			</tr>
+			<tr>
+				<td class="all-label all-label-align">Date:</td>
+				<td>
+					<div class="confd-day" ng-repeat="day_conference in conferenceDetail.day_conferences">
+						{[{ day_conference.day }]}, 
+						<strong>{[{ day_conference.hour_start }]} &agrave;
+						{[{ day_conference.hour_end }]}</strong>
+						<a ng-hide="day_conference.is_full"class="link-url" href="#/day_conferences/reserve/{[{day_conference.id}]}">R&eacute;server</a>
+						<span ng-hide="!day_conference.is_full"><strong><u>Complet</u></strong></span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="all-label all-label-align">Co&ucirc;t:</td>
+				<td>
+					<span ng-bind-html="getTrustAsHtml(conferenceDetail.price)">
+	                </span>
+				</td>
+			</tr>
+			<tr ng-show="conferenceDetail.note">
+
+				<td class="all-label all-label-align">Note:</td>
+				<td>
+					<span ng-bind-html="getTrustAsHtml(conferenceDetail.note)">
+	                </span>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<div class="text-center">
+			<a href="#/conferences" class="btn my-btn"> < Retour Conf&eacute;rence et Ateliers</a>
+		</div>
+
+	</div><!-- ./col-sm-8 text-center -->
+	<div class="col-sm-1">
+	</div>
+</div><!-- row -->

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="bs-example">
+        <ul class="nav nav-tabs full-width">
+            <li class="half-width text-center my-tab"><a href="#/courses/">Cours</a></li>
+            <li class="active half-width text-center my-tab"><a href="">Conf&eacute;rences et Ateliers</a></li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center">Administration Horaire Conférences et Ateliers </h2>
+        </div><!-- ./col-sm-12 -->
+    </div><!-- ./row -->
+
+    {% include "admin_activities/speaker.html" %}
+    <hr />
+    {% include "admin_activities/conference.html" %}
+    <hr />
+    <div ng-show="conference.id">
+        {% include "admin_activities/day_conference.html" %}
+        <hr />
+    </div><!-- ./schedule -->
+</div><!-- container -->

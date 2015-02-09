@@ -1,0 +1,24 @@
+$bgcolor: #99CC66;
+$size-title: 15px;
+$menu-hover: #91C85B;
+$link-hover: #5A8727;
+$txt-color-mid: #333;
+
+/**** _responsive.scss ****/
+@import 'responsive';
+/**** _nav.scss ****/
+@import 'nav';
+/**** _typography.scss ****/
+@import 'typography';
+/**** _calendar.scss ****/
+@import 'calendar';
+/**** _course_detail.scss ****/
+@import 'course_detail';
+/**** _conference.scss ****/
+@import 'conference';
+/**** _conference_detail.scss ****/
+@import 'conference_detail';
+/**** _reservation.scss ****/
+@import 'reservation';
+/**** _buttons.scss ****/
+@import 'buttons';

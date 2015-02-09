@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html ng-app="appActivities" >
+<head>
+    <meta name="viewport" content="width=320, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+    <style type="text/css">
+        .bg-save {
+            background-color: #00FF00;
+        }
+
+    </style>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</head>
+<body ng-controller="MainCtrl">
+    <div class="container" id="main">
+        <!-- block content -->
+        {% block content %}
+        {% endblock %}
+        <!-- ./block content -->
+    </div><!-- ./container -->
+</body>
+</html>
+

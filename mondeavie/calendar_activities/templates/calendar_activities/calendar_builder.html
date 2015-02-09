@@ -1,0 +1,12 @@
+{% load staticfiles %}
+
+{% include "calendar_activities/bootstrap_tab.html" with tab_active="courses" %}
+
+<div class="row row-top-margin">
+	<div class="col-sm-3">
+		{% include "calendar_activities/calendar_menu.html" %}
+	</div>
+    <div class="col-sm-9">
+    	{{ table|safe }}
+    </div><!-- col-sm-12 -->
+</div><!-- row -->

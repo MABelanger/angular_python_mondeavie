@@ -1,0 +1,117 @@
+{% load staticfiles %}
+
+{% include "calendar_activities/bootstrap_tab.html" %}
+
+<div class="row marg-bottom">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+        <h3 class="text-center">R&eacute;servation</h3>
+        <div ng-hide="! reservation.success">
+            <div class="text-center">
+                Votre r&eacute;servation &agrave; &eacute;t&eacute;
+                envoyer avec succ&egrave;s!
+            </div>
+            <br>
+           <div class="text-center">
+                <a ng-href="{[{ reservation.parentPath }]}"
+                   class="btn my-btn">< Retour </a>
+            </div>
+        </div><!-- ./! reservation.success -->
+
+        <div ng-hide="reservation.success">
+            <div class="reserv-cont-form">
+                <span ng-bind-html="getTrustAsHtml(reservation.client.reservationHeader)"></span>
+                <div ng-show='reservation.reserveFor=="cours"'class="dropdown">
+                <br>
+                    <a class="btn my-btn dropdown-toggle" 
+                        type="button"
+                        id="dropdownMenu1"
+                        data-toggle="dropdown"
+                        aria-expanded="true"> 
+                        <span ng-bind-html="getTrustAsHtml(reservation.client.currentMenu)"></span>
+
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation" ng-repeat="item in items">
+                            <a role="menuitem"
+                                tabindex="-1"
+                                href=""
+                                ng-click="selectItem(item)">
+                                <span ng-bind-html="getTrustAsHtml(item.label)"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div ng-show="reservation.client.isSelections"
+                     class="form-group"
+                     class="reservation-is-day">
+                     <br>
+                    <div ng-include="'/calendar_activities/partials/reserve_table_days.html'">
+                    </div>
+
+                </div><!-- ./ng-show="reservation.client.isSelections" -->
+
+                <div class="text-danger">
+                    {[{ reservation.client.errors.selections}]}
+                </div>
+                <div ng-show="item.label">
+                    <br>
+                    Pour : 
+                    <strong>
+                        <span ng-bind-html="getTrustAsHtml(item.label)"></span>
+                    </strong>
+                </div>
+                <div ng-show="reservation.client.isSelections">
+                    <ul>
+                        <li ng-repeat="day in reservation.client.selections">{[{ day }]}</li>
+                    </ul>
+                </div>
+                <!-- The form -->
+                <form ng-show="isForm" class="reserv" role="form">
+                    <div errormsg save-error=""></div>
+                    <div class="form-group">
+                        <div class="text-danger">
+                            {[{ reservation.client.errors.name}]}
+                        </div>
+                        <input type="text" class="form-control" id="name" placeholder="Nom" ng-model=" reservation.client.name">
+                    </div>
+                    <div class="form-group">
+                        <div class="text-danger">
+                            {[{ reservation.client.errors.tel}]}
+                        </div>
+                        <input type="text" class="form-control" id="tel" placeholder="Téléphone" ng-model=" reservation.client.tel">
+                    </div>
+                    <div class="form-group">
+                        <div class="text-danger">
+                            {[{ reservation.client.errors.email}]}
+                        </div>
+                        <input type="email" class="form-control" id="email" placeholder="Courriel" ng-model=" reservation.client.email">
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="2"
+                                    class="form-control"
+                                    id="note"
+                                    placeholder="Note (optionnel)"
+                                    ng-model=" reservation.client.note">
+                        </textarea>
+                    </div>
+                    <!-- buttons -->
+                    <div class="text-right">
+                        <div style="display:inline-block;">
+                            <a ng-href="{{ parent_path }}" class="btn my-btn">< Annuler </a>
+                        </div>
+
+                        <div style="margin-left:10px; display:inline-block;">
+                            <a ng-disabled="send_button_disable" href="" ng-click="send()" class="btn my-btn">Envoyer > </a>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- ./reser-cont-form -->
+        </div><!-- ./ reservation.success -->
+    </div><!-- ./col-sm-6 text-center -->
+    <div class="col-sm-3">
+    </div>
+</div><!-- row -->

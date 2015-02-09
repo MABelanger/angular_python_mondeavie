@@ -1,0 +1,30 @@
+
+            {{ label }}
+            <div errormsg save-error="{[{ {{ errors }} }]}"></div>
+            <div class='input-group date' id='datetimepicker-{{ id_model }}'>
+                <input id='datetimepicker-input-{{ id_model }}' type="text"
+                    class="form-control" data-date-format="YYYY-MM-DD"
+                    ng-model="{{ ng_model }}">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div><!-- ./datetimepicker -->
+        <!-- Script that change the default behaviour of datetimepicker -->
+        <script type="text/javascript">
+            $(function () {
+                // Disable Hour, show only date
+                $('#datetimepicker-{{ id_model }}').datetimepicker({
+                    pickTime: false
+                });
+            });
+
+            // Notify angular that date value has changed.
+            $("#datetimepicker-{{ id_model }}").on("dp.change",function (e) {
+                var scope = angular.element($("#datetimepicker-input-{{ id_model }}")).scope();
+                scope.$apply(function(){
+                    var date = $('#datetimepicker-input-{{ id_model }}').val();
+                    scope.{{ ng_model }} = date;
+                });
+            });
+        </script>
+    

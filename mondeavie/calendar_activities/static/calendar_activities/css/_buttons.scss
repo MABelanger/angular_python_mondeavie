@@ -1,0 +1,12 @@
+/* Button */
+a {
+    /* My Button */
+    &.my-btn {
+        /*background-color: #339933; /*#7AB83D;*/ 
+        color: $txt-color-mid;
+        padding:10px;
+        font-family: Gotham, sans-serif;
+        font-weight: bold;
+        border: 1px solid $link-hover;
+    }
+}

@@ -1,0 +1,68 @@
+{% load staticfiles %}
+
+{% include "calendar_activities/bootstrap_tab.html" with tab_active="courses"%}
+
+<div class="row row-top-margin">
+    <div class="col-sm-4">
+        {% include "calendar_activities/partials/course_detail_left.html" %}
+    </div><!-- ./col-sm-4 -->
+
+    <div class="col-sm-4 text-center">
+        <h4 class="text-center text-uppercase">{[{ courseDetail.teacher.first_name + ' ' + courseDetail.teacher.last_name }]}</h4>
+        <img class="coursed-image radius-img" ng-src="{[{ courseDetail.image }]}">
+        <br>
+        <br>
+        <div class="text-center">
+             <a href="#/courses" class="btn my-btn"> < Retour au calendrier</a>
+        </div>
+    </div>
+
+    <div class="col-sm-4 info-pad-top-col-3">
+        {% include "calendar_activities/partials/course_detail_right.html" %}
+    </div><!-- ./col-sm-4 -->
+</div><!-- ./row -->
+
+<div class="row">
+    <div class="col-sm-12">
+        <br>
+        <span class="all-label">Cours de {[{ courseDetail.course_name.name }]} avec
+                {[{ courseDetail.teacher.first_name + ' ' + 
+                    courseDetail.teacher.last_name }]}</span>,
+        <div ng-bind-html="getTrustAsHtml(courseDetail.description)"></div>
+    </div><!-- ./col-sm-12 -->
+</div><!-- ./row -->
+
+<div class="row">
+    <div class="col-sm-12">
+        <p>
+        <ul ng-show="courseDetail.schedules">
+            <li class="coursed-li-schedule" ng-show="schedule.description" ng-repeat=" schedule in courseDetail.schedules">
+                <span class="all-label">{[{ schedule.name }]}</span>: 
+                    <span class="input-xlarge uneditable-input"
+                    ng-bind-html="getTrustAsHtml(schedule.description)"></span>
+            </li><!-- ./ng-repeat=" schedules -->
+        </ul>
+    </div><!-- ./col-sm-12 -->
+</div><!-- ./row -->
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-horizontal">
+            <fieldset>
+                <div class="control-group">
+                    <span class="all-label">co&ucirc;t:</span>
+                    <span class="input-xlarge uneditable-input"
+                    ng-bind-html="getTrustAsHtml(courseDetail.price)"></span>
+                </div>
+            </fieldset>
+        </div>
+    </div><!-- ./col-sm-12 -->
+</div><!-- ./row -->
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="text-center">
+            <a href="#/courses" class="btn my-btn"> < Retour au calendrier</a>
+        </div>
+    </div><!-- ./col-sm-12 -->
+</div><!-- ./row -->

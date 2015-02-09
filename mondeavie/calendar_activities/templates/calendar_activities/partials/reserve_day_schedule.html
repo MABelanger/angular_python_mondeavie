@@ -1,0 +1,3 @@
+{% load staticfiles %}
+
+{% include "calendar_activities/partials/reserve_day.html" with tab_active="courses" reserveObj="reserveDaySchedule" parent_path="#/courses/{[{ reserveDaySchedule.course_id }]}" %}

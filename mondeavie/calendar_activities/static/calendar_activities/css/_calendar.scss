@@ -1,0 +1,155 @@
+/* Calendar */
+
+table.cal-menu {
+    width: 100%;
+}
+
+table {
+    &.cal {
+        border-collapse: collapse;
+        table-layout: fixed;
+        /*background-color: #D5EDC9;*/
+        width:100%;
+        border-bottom: 1px solid $link-hover;
+
+        .th.cal, td.cal {
+            border-collapse: collapse;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            vertical-align: top;
+            /* height: 40px; */
+            border-left: 1px solid $link-hover;
+            border-right: 1px solid $link-hover;
+            width: 40px;
+            overflow: hidden;
+        }
+    }
+}
+
+a { 
+    &:hover {
+        .cal-menu-tname {
+            text-decoration: none;
+            background-color: $menu-hover;
+        }
+    }
+}
+
+a {
+    &.cal {
+        width: 100%;
+        height: 100%;
+        display: block;
+        color: $txt-color-mid;
+        border: 1px solid transparent;
+    
+        &:link, &:visited {
+            text-decoration: none;
+            outline: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+            background-color: $menu-hover;
+            border: 1px solid $link-hover;
+        }
+
+        &:active {
+            text-decoration: none;
+            background-color: $menu-hover;
+            border: 1px solid $link-hover;
+        }
+    }
+}
+
+.cal-menu-cname {
+    > a {
+        > div {
+            color: black;
+            font-family: Gotham, sans-serif;
+            font-weight: bold;
+            padding-right:10px;
+            outline: none;
+        }
+
+        &:hover{
+            > div {
+                background-color: $menu-hover;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.cal-menu-cname-label {
+    padding-right: 15px;
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.cal-menu-icon {
+    display: inline-block;
+    width: 35px;
+    text-align: center;
+}
+
+
+.cal-menu-tname {
+    padding-right: 25px;
+    white-space: nowrap;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+td.cal-menu-empty {
+    width: 35px;
+}
+
+/*Animate menu, Course Names with Teachers*/
+.animate-show {
+    opacity: 1;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition: all ease-out .2s;
+    transition: all ease-out .2s;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active {
+    -webkit-transition: all ease-in .2s;
+    transition: all ease-in .2s;
+}
+
+.animate-show.ng-hide {
+    line-height: 0;
+    opacity: 0;
+}
+
+/* Contour Table */
+.day-name {
+    border: 0px; 
+    border-bottom: 1px solid $link-hover;
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.no-border {
+    border:0px !important;
+}
+
+.hour {
+    text-align: right;
+    width: 30px !important;
+}
+
+.cal-break {
+    height:5px;
+    border:1px solid #5A8727;
+    background-color:#ADDA7F;
+    text-align:center;
+}

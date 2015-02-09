@@ -1,0 +1,17 @@
+*.pyc
+.sass-cache/
+mondeavie/mondeavie/local_settings.py
+mondeavie/mondeavie/wsgi.py
+mondeavie/static_root/**/*
+mondeavie/static_root/
+mondeavie/media_root/**/*
+mondeavie/media_root/**/*
+
+mondeavie/static/static_root/**/*
+mondeavie/static/static_root/
+mondeavie/static/media/**/*
+mondeavie/static/media/
+
+mondeavie/db.sqlite3*
+mondeavie/old_app.json*
+

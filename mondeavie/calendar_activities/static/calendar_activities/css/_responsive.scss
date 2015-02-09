@@ -1,0 +1,21 @@
+@media screen and (min-width: 992px) {
+    .only-mobile {
+        display: none;
+    }
+
+    .my-tab {
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .only-desktop {
+        display: none;
+    }
+
+    .my-tab {
+        font-size: 1em;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,27 @@
+<div ng-repeat="schedule in courseDetail.schedules">
+    <div class="all-label">{[{ schedule.name }]}:</div>
+    <div class="tab">
+        Du {[{ getRangeDateStr(schedule.day_start, schedule.day_end) }]}
+        <div ng-repeat="daySchedule in schedule.daySchedules">
+            <ul>
+                <li class="coursed-li-day-name" ng-show="daySchedule.day_name != schedule.daySchedules[$index-1].day_name">
+                    <span class="all-label">{[{ daySchedule.day_name }]}</span>
+                </li>
+                <ul>
+                    <li class="coursed-li-hour">{[{ daySchedule.hour_start }]} &agrave; {[{ daySchedule.hour_end }]}
+                        <!-- <a href="" ng-click="reserve(daySchedule)">R&eacute;server</a> -->
+                        <a ng-hide="daySchedule.is_full" class="link-url" href="#/day_schedules/reserve/{[{daySchedule.id}]}">R&eacute;server</a>
+                        <span ng-hide="!daySchedule.is_full"><strong><u>Complet</u></strong></span><br/>
+                        <span class="txt-red">
+                            <span ng-repeat="testingDay in daySchedule.testingDays.list">
+                                (Gratuit le 
+                                <span ng-repeat="day in testingDay.list">{[{day}]}<span>
+                                )<br>
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+            </ul>
+        </div><!-- .ng-repeat="daySchedule -->
+    </div><!-- ./tab -->
+</div><!-- .ng-repeat="schedules -->
